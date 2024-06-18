@@ -5,4 +5,11 @@ coverage
 .prettierignore
 .stylelintignore
 .eslintignore
+.commitlint.config.js
+.lintstagedrc.js
+.eslintrc.js
+.next.config.js
+.bun.lockb
+.package-lock.json
+.pnpm-lock.yaml
 out

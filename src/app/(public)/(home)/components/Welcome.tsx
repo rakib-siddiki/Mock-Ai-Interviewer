@@ -1,9 +1,9 @@
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import { ThemeSwitcher } from '@/components/core/ThemeSwitcher';
 
 const Welcome = () => {
     return (
-        <div className='h-screen flex items-center flex-col justify-center'>
-            <div className='flex mb-2 gap-4'>
+        <div className='flex h-screen flex-col items-center justify-center'>
+            <div className='mb-2 flex gap-4'>
                 Change theme: <ThemeSwitcher />
             </div>
             <h1 className='text-primary-900'>Wellcome</h1>

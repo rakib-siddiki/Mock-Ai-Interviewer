@@ -13,7 +13,9 @@ export const ThemeSwitcher = ({ className }: { className?: string }) => {
     return (
         <>
             {!mounted ? (
-                <button className={`w-fit duration-200 hover:scale-110 active:scale-100`}>
+                <button
+                    className={`w-fit duration-200 hover:scale-110 active:scale-100`}
+                >
                     <span>
                         <Icons.Moon
                             className={`${className}stroke-gray-800 size-6 stroke-[1.25px] dark:hidden`}
@@ -26,7 +28,9 @@ export const ThemeSwitcher = ({ className }: { className?: string }) => {
             ) : (
                 <button
                     className={`w-fit duration-200 hover:scale-110 active:scale-100`}
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                    onClick={() =>
+                        setTheme(theme === 'dark' ? 'light' : 'dark')
+                    }
                 >
                     {theme === 'light' ? (
                         <Icons.Moon

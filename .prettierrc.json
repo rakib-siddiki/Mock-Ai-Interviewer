@@ -3,5 +3,9 @@
     "jsxSingleQuote": true,
     "tabWidth": 4,
     "useTabs": false,
-    "trailingComma": "none"
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "strict",
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindConfig": "./tailwind.config.ts",
+    "trailingComma": "all"
 }

@@ -7,7 +7,7 @@ interface IProps {
     className?: string;
 }
 
-const Logo: FC<IProps> = ({ className }) => {
+export const Logo: FC<IProps> = ({ className }) => {
     const { theme } = useTheme();
 
     return (
@@ -16,10 +16,8 @@ const Logo: FC<IProps> = ({ className }) => {
             width={100}
             src={theme === 'dark' ? '/logo-dark.svg' : '/logo-light.svg'}
             alt='site-logo'
-            className={`${className} h-8 md:h-9 w-auto`}
+            className={`${className} h-8 w-auto md:h-9`}
             unoptimized
         />
     );
 };
-
-export default Logo;

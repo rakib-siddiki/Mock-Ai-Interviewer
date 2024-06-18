@@ -6,35 +6,24 @@ const eslintCommand = (filenames) =>
         .map((f) => path.relative(process.cwd(), f))
         .join(' --file ')}`;
 
-const formatCommand = 'prettier --write';
+const formatCommand = (filenames) =>
+    `prettier --write ${filenames
+        .map((f) => path.relative(process.cwd(), f))
+        .join(' ')}`;
 
 module.exports = {
-    //  Type check TypeScript files
+    // Type check TypeScript files
     'src/**/*.(ts|tsx)': () => 'tsc --noEmit',
 
     // Lint & Prettify TS and JS files
-    'src/**/*.{js,jsx,ts,tsx}': [formatCommand, eslintCommand],
-    'src/**/!*.{js,jsx,ts,tsx,css,scss}': [formatCommand],
+    'src/**/*.{js,jsx,ts,tsx}': (filenames) => [
+        formatCommand(filenames),
+        eslintCommand(filenames)
+    ],
+
+    // Prettify CSS and SCSS files
+    'src/**/*.{css,scss}': (filenames) => formatCommand(filenames),
 
     // Prettify only Markdown and JSON files
-    '**/*.(md|json)': (filenames) =>
-        `yarn prettier --write ${path.relative(
-            process.cwd(),
-            filenames.join(' ')
-        )}`
+    '**/*.(md|json)': (filenames) => formatCommand(filenames)
 };
-
-// module.exports = {
-//     // Type check TypeScript files
-//     '**/*.(ts|tsx)': () => 'yarn tsc --noEmit',
-
-//     // Lint & Prettify TS and JS files
-//     '**/*.(ts|tsx|js)': (filenames) => [
-//         `yarn eslint ${filenames.join(' ')}`,
-//         `yarn prettier --write ${filenames.join(' ')}`
-//     ],
-
-//     // Prettify only Markdown and JSON files
-//     '**/*.(md|json)': (filenames) =>
-//         `yarn prettier --write ${filenames.join(' ')}`
-// };

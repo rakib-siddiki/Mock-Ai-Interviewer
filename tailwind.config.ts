@@ -1,43 +1,27 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+const config = {
     darkMode: ['class'],
-    content: [
-        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/app/**/*.{js,ts,jsx,tsx,mdx}'
-    ],
+    content: ['./src/**/*.{ts,tsx}'],
+    prefix: '',
     theme: {
         container: {
             center: true,
             padding: '2rem',
             screens: {
-                '2xl': '1280px'
-            }
-        },
-        screens: {
-            xs: '480px',
-            sm: '640px',
-            md: '768px',
-            lg: '1024px',
-            xl: '1280px',
-            '2xl': '1536px'
+                '2xl': '1400px',
+            },
         },
         extend: {
+            screens: {
+                xs: '480px',
+                sm: '640px',
+                md: '768px',
+                lg: '1024px',
+                xl: '1280px',
+                '2xl': '1536px',
+            },
             colors: {
-                white: '#ffffff',
-                primary: {
-                    50: '#F2EFFE',
-                    100: '#D8CEFC',
-                    200: '#CBBDFB',
-                    300: '#BFADFA',
-                    400: '#B29CF9',
-                    500: '#A58CF8',
-                    600: '#987BF7',
-                    700: '#8B6BF6',
-                    800: '#7E5AF5',
-                    900: '#7151dd'
-                },
                 gray: {
                     50: '#E8E8E9',
                     100: '#D0D1D4',
@@ -48,34 +32,67 @@ const config: Config = {
                     600: '#5B5D67',
                     700: '#444651',
                     800: '#2C2F3C',
-                    900: '#151826'
+                    900: '#151826',
                 },
-                orchid: {
-                    50: '#FCEFFB',
-                    100: '#F9DEF6',
-                    200: '#F5CEF2',
-                    300: '#F2BDED',
-                    400: '#EFADE9',
-                    500: '#EC9CE4',
-                    600: '#E98CE0',
-                    700: '#E57BDB',
-                    800: '#E26BD7',
-                    900: '#DF5AD2'
+                border: 'hsl(var(--border))',
+                input: 'hsl(var(--input))',
+                ring: 'hsl(var(--ring))',
+                background: 'hsl(var(--background))',
+                foreground: 'hsl(var(--foreground))',
+                primary: {
+                    DEFAULT: 'hsl(var(--primary))',
+                    foreground: 'hsl(var(--primary-foreground))',
                 },
-                success: '#3CB371',
-                error: '#ff4444',
-                warning: '#ffbb33',
-                info: '#33b5e5'
+                secondary: {
+                    DEFAULT: 'hsl(var(--secondary))',
+                    foreground: 'hsl(var(--secondary-foreground))',
+                },
+                destructive: {
+                    DEFAULT: 'hsl(var(--destructive))',
+                    foreground: 'hsl(var(--destructive-foreground))',
+                },
+                muted: {
+                    DEFAULT: 'hsl(var(--muted))',
+                    foreground: 'hsl(var(--muted-foreground))',
+                },
+                accent: {
+                    DEFAULT: 'hsl(var(--accent))',
+                    foreground: 'hsl(var(--accent-foreground))',
+                },
+                popover: {
+                    DEFAULT: 'hsl(var(--popover))',
+                    foreground: 'hsl(var(--popover-foreground))',
+                },
+                card: {
+                    DEFAULT: 'hsl(var(--card))',
+                    foreground: 'hsl(var(--card-foreground))',
+                },
             },
             fontFamily: {
                 nunito: ['var(--font-nunito-sans)'],
-                rubik: ['var(--font-rubik-sans)']
             },
-            boxShadow: {
-                base: '0px 24px 60px 0px rgba(21, 24, 38, 0.15)'
-            }
-        }
+            borderRadius: {
+                lg: 'var(--radius)',
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)',
+            },
+            keyframes: {
+                'accordion-down': {
+                    from: { height: '0' },
+                    to: { height: 'var(--radix-accordion-content-height)' },
+                },
+                'accordion-up': {
+                    from: { height: 'var(--radix-accordion-content-height)' },
+                    to: { height: '0' },
+                },
+            },
+            animation: {
+                'accordion-down': 'accordion-down 0.2s ease-out',
+                'accordion-up': 'accordion-up 0.2s ease-out',
+            },
+        },
     },
-    plugins: [require('autoprefixer')]
-};
+    plugins: [require('tailwindcss-animate')],
+} satisfies Config;
+
 export default config;
