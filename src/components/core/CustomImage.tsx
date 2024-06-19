@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { getBase64 } from '@/lib/utils';
+import { getBase64 } from '@/lib/getbase4';
 import Image, { ImageProps } from 'next/image';
 import React, { FC } from 'react';
 interface IProps extends ImageProps {}

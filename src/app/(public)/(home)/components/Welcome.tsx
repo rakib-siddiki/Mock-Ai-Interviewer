@@ -2,7 +2,7 @@ import { ThemeSwitcher } from '@/components/core/ThemeSwitcher';
 
 const Welcome = () => {
     return (
-        <div className='flex h-screen flex-col items-center justify-center'>
+        <div className=''>
             <div className='mb-2 flex gap-4'>
                 Change theme: <ThemeSwitcher />
             </div>
