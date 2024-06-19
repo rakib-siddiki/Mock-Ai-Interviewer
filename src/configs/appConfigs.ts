@@ -12,6 +12,4 @@ export const FONT_DEFAULT = Nunito_Sans({
     weight: ['300', '400', '500', '600', '700', '800', '900'],
     variable: '--font-nunito-sans',
     display: 'swap',
-    preload: true,
-    adjustFontFallback: true,
 });

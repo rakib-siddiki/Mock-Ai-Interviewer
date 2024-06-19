@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <main>
-            <TheHeader /> {children}
+            <TheHeader />
+            {children}
         </main>
     );
 };
