@@ -1,9 +1,18 @@
-import { LucideProps, Moon, SunMedium, CloudUpload } from 'lucide-react';
+import {
+    LucideProps,
+    Moon,
+    SunMedium,
+    CloudUpload,
+    X,
+    BarChart,
+} from 'lucide-react';
 
 export const Icons = {
     Moon,
     SunMedium,
     CloudUpload,
+    X,
+    BarChart,
     EmptyBox: (props: LucideProps) => (
         <svg
             {...props}

@@ -2,7 +2,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Icons } from './Icons';
-
+import { motion } from 'framer-motion';
 export const ThemeSwitcher = ({ className }: { className?: string }) => {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
@@ -27,19 +27,33 @@ export const ThemeSwitcher = ({ className }: { className?: string }) => {
                 </button>
             ) : (
                 <button
-                    className={`w-fit duration-200 hover:scale-110 active:scale-100`}
+                    className={`w-fit duration-200`}
                     onClick={() =>
                         setTheme(theme === 'dark' ? 'light' : 'dark')
                     }
                 >
                     {theme === 'light' ? (
-                        <Icons.Moon
-                            className={`${className} size-6 stroke-gray-800 stroke-[1.25px]`}
-                        />
+                        <motion.div
+                            whileTap={{
+                                rotate: 180,
+                                transition: { duration: 0.3 },
+                            }}
+                        >
+                            <Icons.Moon
+                                className={`${className} size-6 stroke-gray-800 stroke-[1.25px]`}
+                            />
+                        </motion.div>
                     ) : (
-                        <Icons.SunMedium
-                            className={`${className} size-6 stroke-gray-50 stroke-[1.25px]`}
-                        />
+                        <motion.div
+                            whileTap={{
+                                rotate: -180,
+                                transition: { duration: 0.3 },
+                            }}
+                        >
+                            <Icons.SunMedium
+                                className={`${className} size-6 stroke-gray-50 stroke-[1.25px]`}
+                            />
+                        </motion.div>
                     )}
                 </button>
             )}
