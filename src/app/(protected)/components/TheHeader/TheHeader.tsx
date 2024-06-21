@@ -47,7 +47,7 @@ const TheHeader: FC<IProps> = ({ navItems, className }) => {
                 className,
             )}
         >
-            <nav className='flex items-center justify-between gap-3 rounded-full bg-zinc-100 px-6 py-3 *:rounded-full *:px-3 *:py-1 *:transition *:duration-150 last:*:p-0 hover:*:bg-gray-200 dark:bg-gray-800 dark:hover:*:bg-gray-700'>
+            <nav className='flex items-center justify-between gap-3 rounded-full bg-zinc-100 px-6 py-3 *:rounded-full *:px-3 *:py-1 *:transition *:duration-150 last:*:p-0 hover:*:bg-gray-50 dark:bg-gray-800 dark:hover:*:bg-gray-700'>
                 <Link href='/dashboard'>
                     <svg
                         className='h-6 w-6'

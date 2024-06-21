@@ -100,7 +100,7 @@ const HamburgerMenu: FC<IProps> = ({ navItems }) => {
                             <Link
                                 href={url}
                                 key={url}
-                                className='block font-semibold'
+                                className='block font-semibold max-md:focus:text-indigo-500'
                             >
                                 {label}
                             </Link>

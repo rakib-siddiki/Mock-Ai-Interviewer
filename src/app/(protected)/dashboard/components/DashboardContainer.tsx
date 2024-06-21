@@ -1,18 +1,14 @@
 import React from 'react';
+import { DashBoardHeading } from '.';
+import { AddButton } from './AddButton';
 
-const DashboardContainer = () => {
+const DashBoardContainer = () => {
     return (
-        <section className='container py-20 md:py-28'>
-            <article>
-                <h1 className='text-3xl font-extrabold text-indigo-500'>
-                    Dashboard
-                </h1>
-                <h6 className='text-gray-500'>
-                    Create and Start your AI Mockup Interview
-                </h6>
-            </article>
+        <section className='container space-y-7 py-24 sm:space-y-10 md:py-28'>
+            <DashBoardHeading />
+            <AddButton />
         </section>
     );
 };
 
-export default DashboardContainer;
+export default DashBoardContainer;

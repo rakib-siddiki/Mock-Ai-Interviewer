@@ -69,7 +69,7 @@ const config = {
                 },
             },
             fontFamily: {
-                nunito: ['var(--font-nunito-sans)'],
+                roboto: ['var(--font-roboto-sans)'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -81,6 +81,10 @@ const config = {
                     from: { height: '0' },
                     to: { height: 'var(--radix-accordion-content-height)' },
                 },
+                'slide-in-once': {
+                    '0%': { left: '-100%',opacity:'25%' },
+                    '100%': { left: '100%',opacity:'100%' },
+                },
                 'accordion-up': {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' },
@@ -89,6 +93,7 @@ const config = {
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
+                'slide-in-once': 'slide-in-once .7s ease-out forwards',
             },
         },
     },

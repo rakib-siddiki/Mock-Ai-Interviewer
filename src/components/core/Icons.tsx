@@ -5,6 +5,8 @@ import {
     CloudUpload,
     X,
     BarChart,
+    Plus,
+    ArrowLeftCircleIcon,
 } from 'lucide-react';
 
 export const Icons = {
@@ -13,6 +15,8 @@ export const Icons = {
     CloudUpload,
     X,
     BarChart,
+    Plus,
+    ArrowLeftCircleIcon,
     EmptyBox: (props: LucideProps) => (
         <svg
             {...props}

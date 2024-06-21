@@ -1,3 +1,5 @@
+import { Icons } from '@/components/core';
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -5,6 +7,12 @@ import React from 'react';
 const NotFoundPage = () => {
     return (
         <section className='relative z-10 flex min-h-dvh w-full items-center justify-between overflow-hidden py-10'>
+            <Link
+                href={'/dashboard'}
+                className='fixed left-4 top-4 rounded-full lg:hidden'
+            >
+                <Icons.ArrowLeftCircleIcon className='size-8 stroke-primary' />
+            </Link>
             <Image
                 width={1000}
                 height={1000}
@@ -24,7 +32,7 @@ const NotFoundPage = () => {
                         href='/'
                         className='mt-4 inline-block p-2 text-2xl font-bold hover:underline'
                     >
-                        Go back
+                        <Button className=''>Go Back</Button>
                     </Link>
                 </div>
             </div>

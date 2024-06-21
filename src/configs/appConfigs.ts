@@ -1,4 +1,4 @@
-import { Nunito_Sans } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
 export const SITE_TITLE_DEFAULT = 'Mock Ai Interviewer';
 export const SITE_TITLE_TEMPLATE_DEFAULT = `%s - A Smart Interviewer For You.`;
@@ -7,9 +7,9 @@ export const SITE_DESCRIPTION_DEFAULT =
 export const SITE_VERIFICATION_GOOGLE_DEFAULT =
     'google-site-verification=adwdawdaw';
 
-export const FONT_DEFAULT = Nunito_Sans({
+export const FONT_DEFAULT = Roboto({
     subsets: ['latin'],
-    weight: ['300', '400', '500', '600', '700', '800', '900'],
-    variable: '--font-nunito-sans',
+    weight: ['100', '300', '400', '500', '700', '900'],
+    variable: '--font-roboto-sans',
     display: 'swap',
 });
