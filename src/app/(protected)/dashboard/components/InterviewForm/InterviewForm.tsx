@@ -1,9 +1,4 @@
-import React, {
-    ComponentPropsWithoutRef,
-    Dispatch,
-    FC,
-    SetStateAction,
-} from 'react';
+import React, { ComponentPropsWithoutRef, Dispatch, FC, SetStateAction } from 'react';
 import {
     Dialog,
     DialogContent,
@@ -26,8 +21,8 @@ const InterviewForm: FC<IProps> = ({ isOpen, setIsOpen }) => {
                             Take A Job Interview Preparation
                         </DialogTitle>
                         <DialogDescription>
-                            Add Details about yout job position/role, Job
-                            description and years of experience
+                            Add Details about yout job position/role, Job description and years of
+                            experience
                         </DialogDescription>
                     </DialogHeader>
                     <Form />
