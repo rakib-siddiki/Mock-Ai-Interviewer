@@ -7,6 +7,7 @@ import {
     BarChart,
     Plus,
     ArrowLeftCircleIcon,
+    Loader,
 } from 'lucide-react';
 
 export const Icons = {
@@ -17,6 +18,7 @@ export const Icons = {
     BarChart,
     Plus,
     ArrowLeftCircleIcon,
+    Loader,
     EmptyBox: (props: LucideProps) => (
         <svg
             {...props}

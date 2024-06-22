@@ -2,13 +2,11 @@
 import { Icons } from '@/components/core';
 import { Card, CardContent } from '@/components/ui/card';
 import React, { useState } from 'react';
-import { InterviewForm } from './InterviewForm';
+import { InterviewForm } from '../InterviewForm';
 const AddButton = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <section className='w-full max-w-xs'>
-            {/* <div className='relative w-full cursor-pointer overflow-hidden  before:absolute before:-left-[145px] before:-top-1/2 before:h-[500px] before:w-6 before:rotate-45 before:bg-primary before:opacity-5 before:duration-500  hover:before:left-full hover:before:translate-x-[180%]  '>
-            </div> */}
             <button
                 className='group relative inline-block w-full overflow-clip transition active:scale-95'
                 onClick={() => setIsOpen((prev) => !prev)}
