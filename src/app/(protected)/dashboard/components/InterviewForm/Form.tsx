@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input';
 import { INTERVIEW_FORM_FIELDS } from '@/app/(protected)/static';
 import { Icons } from '@/components/core';
 import { TInterviewFormSchema } from './ZodSchema';
-import { useInterviewForm } from '../hooks';
+import { useInterviewForm } from '../../hooks';
 
 const Form = () => {
     const { form, handleSubmit, control, onSubmit, isSubmitting, errors } = useInterviewForm();

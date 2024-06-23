@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { TInterviewFormSchema, interviewFormSchema } from '../InterviewForm/ZodSchema';
-import { addInterview } from '@/app/(protected)/dashboard/actions';
+import { TInterviewFormSchema, interviewFormSchema } from '../components/InterviewForm/ZodSchema';
+import { addInterview } from '@/app/(protected)/dashboard/actions/addInterview';
 import { useRouter } from 'next/navigation';
 
 export const useInterviewForm = () => {
@@ -22,8 +22,10 @@ export const useInterviewForm = () => {
     } = form;
     const onSubmit = async (data: TInterviewFormSchema) => {
         const result = await addInterview(data);
+        console.log('🚀 > file: useInterviewForm.tsx:25 > onSubmit > result:', result);
         if (result?.error) {
             setError('root', { message: result?.error });
+            return;
         }
         router.replace(`/dashboard/interviews/${result?.mockId}`);
     };

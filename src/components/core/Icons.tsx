@@ -8,6 +8,8 @@ import {
     Plus,
     ArrowLeftCircleIcon,
     Loader,
+    Lightbulb,
+    Webcam,
 } from 'lucide-react';
 
 export const Icons = {
@@ -19,6 +21,8 @@ export const Icons = {
     Plus,
     ArrowLeftCircleIcon,
     Loader,
+    Lightbulb,
+    Webcam,
     EmptyBox: (props: LucideProps) => (
         <svg
             {...props}

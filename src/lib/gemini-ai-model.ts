@@ -1,7 +1,8 @@
-import { GEMINI_API_KEY } from '@/configs/env';
+import { GEMINI_API_KEY, SITE_DOMAIN } from '@/configs/env';
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from '@google/generative-ai';
 
 const apiKey = GEMINI_API_KEY;
+console.log('🚀 > file: gemini-ai-model.ts:5 > GEMINI_API_KEY:', SITE_DOMAIN);
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
