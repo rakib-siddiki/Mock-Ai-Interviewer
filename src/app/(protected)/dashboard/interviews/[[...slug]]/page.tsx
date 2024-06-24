@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { GetStarted } from './components';
+import { GetStarted, StartInterview } from './components';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -15,18 +15,16 @@ export const generateMetadata = ({ params }: IProps): Metadata => {
 };
 
 const InterviewsPage: FC<IProps> = ({ params }) => {
+    const mockId = params?.slug?.[0] || '';
     switch (params?.slug?.length) {
         case 1:
-            return <GetStarted slug={params?.slug[0]} />;
+            return <GetStarted mockId={mockId} />;
         case 2:
             if (params?.slug[1] === 'feedback')
                 return (
                     <div className='grid h-screen place-items-center text-6xl'> Feedback Page </div>
                 );
-            if (params?.slug[1] === 'start')
-                return (
-                    <div className='grid h-screen place-items-center text-6xl'> Start Page </div>
-                );
+            if (params?.slug[1] === 'start') return <StartInterview mockId={mockId} />;
             return notFound();
         default:
             break;

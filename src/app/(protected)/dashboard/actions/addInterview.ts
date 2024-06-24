@@ -1,6 +1,4 @@
 'use server';
-console.log('🚀 > addInterview > inside');
-
 import { QUSTION_AMOUNT } from '@/configs/env';
 import { db } from '@/db/drizzle';
 import { mockAiInterviewer } from '@/db/schema';
@@ -26,8 +24,7 @@ export const addInterview = async (data: IFromData) => {
         TECH stacks : ${techStack}
         Years of Experience: ${yearsOfExperience} Please provide ${QUSTION_AMOUNT} interview questions along with their simple answers in JSON format. Ensure the questions are relevant to the specified job position, description, and required experience level. The output should be structured with each question and its corresponding answer in a separate JSON object, formatted as follows:`;
         const result = await chatSession.sendMessage(propmt);
-        console.log('🚀 > file: addInterview.ts:29 > addInterview > result:', result);
-        const jsonMockResponse = result.response.text().replace('```json', '').replace('```', '');
+        const jsonMockResponse = result.response.text().replace(/```json|```/g, '');
 
         const res = await db
             .insert(mockAiInterviewer)
@@ -44,7 +41,6 @@ export const addInterview = async (data: IFromData) => {
             mockId: res[0].mockId,
         };
     } catch (error) {
-        console.log('🚀 > file: addInterview.ts:47 > addInterview > error:', error);
         return {
             error: 'An unexpected error occurred! Please try again later.',
         };

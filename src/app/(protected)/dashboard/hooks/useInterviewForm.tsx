@@ -22,12 +22,11 @@ export const useInterviewForm = () => {
     } = form;
     const onSubmit = async (data: TInterviewFormSchema) => {
         const result = await addInterview(data);
-        console.log('🚀 > file: useInterviewForm.tsx:25 > onSubmit > result:', result);
         if (result?.error) {
             setError('root', { message: result?.error });
             return;
         }
-        router.replace(`/dashboard/interviews/${result?.mockId}`);
+        router.push(`/dashboard/interviews/${result?.mockId}`);
     };
 
     return { form, handleSubmit, control, onSubmit, isSubmitting, errors };

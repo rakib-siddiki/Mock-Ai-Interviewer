@@ -10,6 +10,7 @@ import {
     Loader,
     Lightbulb,
     Webcam,
+    Volume2Icon,
 } from 'lucide-react';
 
 export const Icons = {
@@ -23,6 +24,7 @@ export const Icons = {
     Loader,
     Lightbulb,
     Webcam,
+    Volume2Icon,
     EmptyBox: (props: LucideProps) => (
         <svg
             {...props}
