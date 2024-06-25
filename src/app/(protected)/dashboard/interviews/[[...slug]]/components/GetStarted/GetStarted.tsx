@@ -17,7 +17,7 @@ const GetStarted: FC<IProps> = async ({ mockId }) => {
     return (
         <Container>
             <h1 className='mb-5 text-3xl font-extrabold text-indigo-500'>{"Let's"} Get Started</h1>
-            <div className='grid gap-10 sm:grid-cols-2'>
+            <div className='grid grid-cols-1 gap-10 sm:grid-cols-2'>
                 <article className='space-y-6'>
                     <Card>
                         <CardContent className='space-y-4 p-5 font-medium capitalize *:block md:text-lg'>

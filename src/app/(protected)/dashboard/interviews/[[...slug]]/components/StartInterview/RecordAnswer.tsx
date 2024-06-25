@@ -1,12 +1,25 @@
 import React, { FC } from 'react';
 import { WebCam } from '..';
-interface IProps {
+interface IProps extends TSpeechToText {
     mockId: string;
 }
-const RecordAnswer: FC<IProps> = ({ mockId }) => {
+type TSpeechToText = {
+    isListening: boolean;
+    handleListen: () => void;
+    transcript: string;
+    isProcessing: boolean;
+    handleRestart: () => void;
+};
+const RecordAnswer: FC<IProps> = ({ mockId, ...useSpeechToText }) => {
     return (
         <>
-            <WebCam mockId={mockId} buttonText='End Interview' pathUrl='feedback' />
+            <WebCam
+                mockId={mockId}
+                buttonText='End Interview'
+                pathUrl='feedback'
+                enebleAnswerOption
+                {...useSpeechToText}
+            />
         </>
     );
 };

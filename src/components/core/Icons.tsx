@@ -1,3 +1,5 @@
+import React, { ComponentProps } from 'react';
+import { cn } from '@/lib/utils';
 import {
     LucideProps,
     Moon,
@@ -56,4 +58,23 @@ export const Icons = {
             ></path>
         </svg>
     ),
+    Mic: (props: ComponentProps<'div'>) => <MicWaveAnimation {...props} />,
+};
+
+const MicWaveAnimation = ({ className, ...props }: ComponentProps<'div'>) => {
+    return (
+        <div
+            className={cn(
+                'flex h-4 gap-1 *:h-full *:w-1 *:transform *:rounded-lg *:bg-teal-400',
+                className,
+            )}
+            {...props}
+        >
+            <div className='animate-quiet'></div>
+            <div className='animate-quiet'></div>
+            <div className='animate-quiet'></div>
+            <div className='animate-loud'></div>
+            <div className='animate-quiet'></div>
+        </div>
+    );
 };

@@ -5,19 +5,21 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import React, { FC, Fragment, Suspense, useState } from 'react';
+import QustionsCardSkeleton from './QustionsCardSkeleton';
 interface IProps {
     data: { question: string; answer: string }[] | null;
     error: string;
+    resetSpeech: () => void;
 }
-const QuestionsCard: FC<IProps> = ({ data, error }) => {
+const QuestionsCard: FC<IProps> = ({ data, error, resetSpeech }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const { textToSpeech } = useTextToSpeech();
     return (
         <Card className='max-sm:order-1'>
-            <CardContent className='h-full space-y-4 p-5'>
-                <Suspense fallback={<div>Loading...</div>}>
+            <CardContent className='grid h-full grid-cols-subgrid space-y-4 p-5'>
+                <Suspense fallback={<QustionsCardSkeleton />}>
                     {error ? (
-                        <div className='grid place-content-center text-balance text-center text-red-500'>
+                        <div className='grid h-full place-items-center text-balance text-center text-red-500'>
                             {error}
                         </div>
                     ) : (
@@ -51,7 +53,10 @@ const QuestionsCard: FC<IProps> = ({ data, error }) => {
                                 {currentQuestion > 0 && (
                                     <Button
                                         size='sm'
-                                        onClick={() => setCurrentQuestion((prev) => prev - 1)}
+                                        onClick={() => {
+                                            setCurrentQuestion((prev) => prev - 1);
+                                            resetSpeech();
+                                        }}
                                     >
                                         Previous
                                     </Button>
@@ -59,7 +64,10 @@ const QuestionsCard: FC<IProps> = ({ data, error }) => {
                                 {data && currentQuestion < data?.length - 1 && (
                                     <Button
                                         size='sm'
-                                        onClick={() => setCurrentQuestion((prev) => prev + 1)}
+                                        onClick={() => {
+                                            setCurrentQuestion((prev) => prev + 1);
+                                            resetSpeech();
+                                        }}
                                     >
                                         Next
                                     </Button>

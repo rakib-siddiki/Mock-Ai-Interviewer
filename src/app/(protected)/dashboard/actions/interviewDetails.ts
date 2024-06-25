@@ -30,7 +30,7 @@ export const GetInterviewDetails = async (mockId: string): Promise<TInterviewDet
         return res;
     } catch (error) {
         return {
-            error: 'An unexpected error occurred! Please try again later.',
+            error: 'An unexpected error occurred! please try again later.😢',
         };
     }
 };
@@ -45,7 +45,7 @@ export const GetInterviewqustions = async (mockId: string): Promise<TInterviewQA
         return parsedResponse;
     } catch (error) {
         return {
-            error: 'An unexpected error occurred! while fetching questions😢 Please try again later.',
+            error: 'An unexpected error occurred! please try again later.😢',
         };
     }
 };
