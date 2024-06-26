@@ -1,11 +1,12 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+type TSpeechRecognition = SpeechRecognition;
 export const useSpeechToText = () => {
     const [isListening, setIsListening] = useState<boolean>(false);
     const [transcript, setTranscript] = useState<string>('');
     const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
-    const recognitionRef = useRef<SpeechRecognition | null>(null);
+    const recognitionRef = useRef<TSpeechRecognition | null>(null);
     useEffect(() => {
         if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
             alert(
