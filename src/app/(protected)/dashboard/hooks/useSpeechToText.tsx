@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 //@ ts-nocheck
 'use client';
@@ -29,7 +31,8 @@ export const useSpeechToText = () => {
             setIsProcessing(false);
         };
 
-        newRecongnition.onresult = (event) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        newRecongnition.onresult = (event: any) => {
             let finalTranscript = '';
 
             for (let i = event.resultIndex; i < event.results.length; i++) {
@@ -44,7 +47,6 @@ export const useSpeechToText = () => {
                 setIsProcessing(false);
             }
         };
-        // @ts-expect-error  ts-migrate(2339) FIXME: Property 'current' does not exist on type 'typeof ... Remove this comment to see the full error message
         recognitionRef.current = newRecongnition;
     }, []);
 
