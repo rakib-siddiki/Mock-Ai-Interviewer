@@ -10,3 +10,14 @@ export const mockAiInterviewer = pgTable('mock_ai_interviewer', {
     createdAt: timestamp('created_at').notNull().defaultNow(),
     mockId: varchar('mock_id', { length: 50 }).notNull(),
 });
+export const userAnswerTable = pgTable('user_answer', {
+    id: uuid('id').primaryKey().defaultRandom(),
+    mockIdRef: varchar('mock_id').notNull(),
+    question: varchar('question').notNull(),
+    correctAnswer: text('correct_answer').notNull(),
+    userAnswer: text('user_answer').notNull(),
+    feedback: text('feedback').notNull(),
+    rating: varchar('rating').notNull(),
+    userEmail: varchar('user_email').notNull(),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+});

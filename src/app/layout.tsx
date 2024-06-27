@@ -24,19 +24,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang='en'>
             <body className={`${FONT_DEFAULT.variable} ${switchThemeDuration}`}>
-                <ThemeProvider
-                    attribute='class'
-                    defaultTheme='system'
-                    enableSystem
-                >
+                <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
                     <main>{children}</main>
                 </ThemeProvider>
             </body>

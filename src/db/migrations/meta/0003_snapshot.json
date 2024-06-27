@@ -1,0 +1,141 @@
+{
+    "id": "9642e258-afc6-4a10-81e8-8bd70aeb4084",
+    "prevId": "28ff5f4e-2e05-4356-b170-d7b03b8b30fb",
+    "version": "7",
+    "dialect": "postgresql",
+    "tables": {
+        "public.mock_ai_interviewer": {
+            "name": "mock_ai_interviewer",
+            "schema": "",
+            "columns": {
+                "id": {
+                    "name": "id",
+                    "type": "uuid",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "default": "gen_random_uuid()"
+                },
+                "job_role": {
+                    "name": "job_role",
+                    "type": "varchar(100)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "tech_stack": {
+                    "name": "tech_stack",
+                    "type": "varchar(255)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "years_of_experience": {
+                    "name": "years_of_experience",
+                    "type": "varchar(20)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "json_mock_response": {
+                    "name": "json_mock_response",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "created_by": {
+                    "name": "created_by",
+                    "type": "varchar(50)",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "created_at": {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": true,
+                    "default": "now()"
+                },
+                "mock_id": {
+                    "name": "mock_id",
+                    "type": "varchar(50)",
+                    "primaryKey": false,
+                    "notNull": true
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {},
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {}
+        },
+        "public.user_answer": {
+            "name": "user_answer",
+            "schema": "",
+            "columns": {
+                "id": {
+                    "name": "id",
+                    "type": "uuid",
+                    "primaryKey": true,
+                    "notNull": true,
+                    "default": "gen_random_uuid()"
+                },
+                "mock_id": {
+                    "name": "mock_id",
+                    "type": "varchar",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "question": {
+                    "name": "question",
+                    "type": "varchar",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "correct_answer": {
+                    "name": "correct_answer",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "user_answer": {
+                    "name": "user_answer",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "feedback": {
+                    "name": "feedback",
+                    "type": "text",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "rating": {
+                    "name": "rating",
+                    "type": "varchar",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "user_email": {
+                    "name": "user_email",
+                    "type": "varchar",
+                    "primaryKey": false,
+                    "notNull": true
+                },
+                "created_at": {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "notNull": true,
+                    "default": "now()"
+                }
+            },
+            "indexes": {},
+            "foreignKeys": {},
+            "compositePrimaryKeys": {},
+            "uniqueConstraints": {}
+        }
+    },
+    "enums": {},
+    "schemas": {},
+    "_meta": {
+        "columns": {},
+        "schemas": {},
+        "tables": {}
+    }
+}

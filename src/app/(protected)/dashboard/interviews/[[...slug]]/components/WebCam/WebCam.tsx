@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import { Icons } from '@/components/core';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,8 @@ import React, { FC, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import { useAnswerInText, useWebcamState } from '@/app/(protected)/dashboard/hooks';
 import { Textarea } from '@/components/ui/textarea';
+import { addUserAnswer } from '@/app/(protected)/dashboard/actions/addUserAnswer';
+import { toast } from 'sonner';
 
 type TSpeechToText = {
     isListening: boolean;
@@ -17,25 +20,74 @@ type TSpeechToText = {
 };
 
 interface IProps extends Partial<TSpeechToText> {
+    data?: { question: string; answer: string }[] | null;
     mockId?: string;
     buttonText: string;
     pathUrl: string;
     enebleAnswerOption?: boolean;
+    currentQuestion?: number;
 }
 
 const WebCam: FC<IProps> = ({
-    mockId,
+    currentQuestion = 0,
+    data = null,
+    mockId = '',
     buttonText,
     pathUrl,
     enebleAnswerOption,
     ...useSpeechToText
 }) => {
     const [webCamEnabled, setWebCamEnabled] = useWebcamState();
+    const [loading, setLoading] = useState<boolean>(false);
     const [userAnswer, setUserAnswer] = useState<string>('');
     const [isAnswerInText, setIsAnswerInText] = useState<boolean>(false);
+    const [submitAnswer, setSubmitAnswer] = useState<boolean>(false);
     const { handleAnswerInText } = useAnswerInText(setUserAnswer, 300);
     const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
     const { handleListen, isListening, isProcessing, transcript, handleRestart } = useSpeechToText;
+    const submitWithVoice = !isAnswerInText && !isListening;
+    const submitWithText = isAnswerInText && submitAnswer;
+
+    useEffect(() => {
+        const handleSavedAnswer = async () => {
+            try {
+                if ((submitWithText || submitWithVoice) && userAnswer.length > 10) {
+                    setLoading(true);
+                    const res = await addUserAnswer({ data, currentQuestion, userAnswer, mockId });
+                    handleRestart && handleRestart();
+                    setSubmitAnswer(false);
+                    if ('error' in res) {
+                        toast(res.error, {
+                            style: {
+                                color: 'white',
+                                background: 'red',
+                            },
+                            duration: 1500,
+                        });
+                    }
+                    if ('command' in res && res.command === 'INSERT') {
+                        toast('Answer added successfully', {
+                            style: {
+                                background: 'green',
+                                color: 'white',
+                            },
+                        });
+                    }
+                }
+            } catch (error) {
+                toast('Something went wrong', {
+                    style: {
+                        color: 'white',
+                        background: 'red',
+                    },
+                    duration: 1500,
+                });
+            } finally {
+                setLoading(false);
+            }
+        };
+        void handleSavedAnswer();
+    }, [isListening, submitAnswer, userAnswer]);
 
     const handleTextReset = () => {
         setUserAnswer('');
@@ -84,7 +136,9 @@ const WebCam: FC<IProps> = ({
                 <div className='flex justify-between gap-3 *:w-full *:max-xs:px-1'>
                     {isAnswerInText ? (
                         <>
-                            <Button onClick={() => {}}>Submit</Button>
+                            <Button onClick={() => setSubmitAnswer(true)}>
+                                {loading ? <Icons.Loader className='animate-spin' /> : 'Submit'}
+                            </Button>
                             {!userAnswer && (
                                 <Button onClick={() => setIsAnswerInText(false)}>
                                     Answer By Voice
@@ -98,18 +152,19 @@ const WebCam: FC<IProps> = ({
 
                     {!isAnswerInText && (
                         <Button onClick={handleListen}>
-                            {isProcessing && isListening ? (
+                            {loading ? (
+                                <Icons.Loader className='animate-spin' />
+                            ) : isProcessing && isListening ? (
                                 <Icons.Mic />
                             ) : !isProcessing && !isListening ? (
                                 'Start Recording'
                             ) : (
-                                'Stop Recording'
+                                'Stop Recording '
                             )}
                         </Button>
                     )}
                 </div>
             )}
-
             <div className='flex justify-end'>
                 <Link href={`${mockId}/${pathUrl}`}>
                     <Button

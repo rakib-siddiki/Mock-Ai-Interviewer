@@ -62,19 +62,6 @@ export const useSpeechToText = () => {
         } else {
             // @ts-expect-error  build error
             recognitionRef.current?.start();
-            if (recognitionRef.current) {
-                navigator.mediaDevices
-                    .getUserMedia({ audio: true })
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                    .then((_stream) => {
-                        console.log('Microphone access granted');
-                        //@ts-expect-error build error
-                        recognitionRef.current.start();
-                    })
-                    .catch((err) => {
-                        console.error('Microphone access denied:', err);
-                    });
-            }
         }
     };
     return { handleListen, isListening, transcript, isProcessing, handleRestart };

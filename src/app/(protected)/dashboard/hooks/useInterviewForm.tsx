@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { TInterviewFormSchema, interviewFormSchema } from '../components/InterviewForm/ZodSchema';
 import { addInterview } from '@/app/(protected)/dashboard/actions/addInterview';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 export const useInterviewForm = () => {
     const form = useForm<TInterviewFormSchema>({
@@ -26,7 +27,16 @@ export const useInterviewForm = () => {
             setError('root', { message: result?.error });
             return;
         }
-        router.push(`/dashboard/interviews/${result?.mockId}`);
+        if ('mockId' in result) {
+            toast('Interview created successfully!', {
+                style: {
+                    color: 'white',
+                    background: 'green',
+                },
+                duration: 1500,
+            });
+            router.push(`/dashboard/interviews/${result?.mockId}`);
+        }
     };
 
     return { form, handleSubmit, control, onSubmit, isSubmitting, errors };

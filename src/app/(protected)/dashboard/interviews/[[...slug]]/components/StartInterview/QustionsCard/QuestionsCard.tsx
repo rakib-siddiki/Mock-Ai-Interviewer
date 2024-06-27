@@ -4,15 +4,22 @@ import { Icons } from '@/components/core';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import React, { FC, Fragment, Suspense, useState } from 'react';
+import React, { Dispatch, FC, Fragment, SetStateAction, Suspense } from 'react';
 import QustionsCardSkeleton from './QustionsCardSkeleton';
 interface IProps {
     data: { question: string; answer: string }[] | null;
     error: string;
     resetSpeech: () => void;
+    currentQuestion: number;
+    setCurrentQuestion: Dispatch<SetStateAction<number>>;
 }
-const QuestionsCard: FC<IProps> = ({ data, error, resetSpeech }) => {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+const QuestionsCard: FC<IProps> = ({
+    data,
+    error,
+    currentQuestion,
+    setCurrentQuestion,
+    resetSpeech,
+}) => {
     const { textToSpeech } = useTextToSpeech();
     return (
         <Card className='max-sm:order-1'>

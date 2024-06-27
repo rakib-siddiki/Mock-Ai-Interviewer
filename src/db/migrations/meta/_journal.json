@@ -15,6 +15,20 @@
             "when": 1719053587364,
             "tag": "0001_grey_elektra",
             "breakpoints": true
+        },
+        {
+            "idx": 2,
+            "version": "7",
+            "when": 1719410490044,
+            "tag": "0002_flippant_silhouette",
+            "breakpoints": true
+        },
+        {
+            "idx": 3,
+            "version": "7",
+            "when": 1719448747506,
+            "tag": "0003_mean_expediter",
+            "breakpoints": true
         }
     ]
 }
