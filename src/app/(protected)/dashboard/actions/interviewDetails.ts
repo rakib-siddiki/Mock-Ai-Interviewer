@@ -2,7 +2,9 @@
 
 import { db } from '@/db/drizzle';
 import { mockAiInterviewer, userAnswerTable } from '@/db/schema';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { eq } from 'drizzle-orm';
+import { revalidatePath } from 'next/cache';
 export type TInterviewDetails = {
     id: string;
     jobRole: string;
@@ -57,8 +59,29 @@ export const getFeedback = async (mockId: string) => {
             .from(userAnswerTable)
             .where(eq(userAnswerTable.mockIdRef, mockId));
         if (res.length === 0) return { error: 'No feedback found' };
+        revalidatePath(`/dashboard/interviews/${mockId}/feedback`);
+
         return res;
     } catch (error) {
+        return {
+            error: 'An unexpected error occurred! please try again later.😢',
+        };
+    }
+};
+
+export const getPreviousInterviews = async () => {
+    try {
+        const { getUser } = getKindeServerSession();
+        const user = await getUser();
+        if (!user || !user.email) return { error: 'Data not found' };
+        const res = await db
+            .select()
+            .from(mockAiInterviewer)
+            .where(eq(mockAiInterviewer.createdBy, user.email));
+        revalidatePath('/dashboard' || '/dashboard/interviews');
+        return res;
+    } catch (error) {
+        console.log('🚀 > file: interviewDetails.ts:77 > getPreviousInterviews > error:', error);
         return {
             error: 'An unexpected error occurred! please try again later.😢',
         };

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Feedback, GetStarted, StartInterview } from './components';
+import { Container, Feedback, GetStarted, InterViewLists, StartInterview } from './components';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -26,7 +26,11 @@ const InterviewsPage: FC<IProps> = ({ params }) => {
         default:
             break;
     }
-    return <div className='grid h-screen place-items-center text-6xl'> Interviews Page </div>;
+    return (
+        <Container>
+            <InterViewLists />
+        </Container>
+    );
 };
 
 export default InterviewsPage;

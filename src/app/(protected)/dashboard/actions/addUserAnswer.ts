@@ -1,10 +1,8 @@
 'use server';
-
 import { db } from '@/db/drizzle';
 import { userAnswerTable } from '@/db/schema';
 import { chatSession } from '@/lib/gemini-ai-model';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { and, eq } from 'drizzle-orm';
 type TUserAnswer = {
     data: { question: string; answer: string }[] | null;
     currentQuestion: number;
@@ -21,20 +19,6 @@ export const addUserAnswer = async ({ ...userData }: TUserAnswer) => {
         const { getUser } = getKindeServerSession();
         const user = await getUser();
         const { data, currentQuestion, userAnswer, mockId } = userData;
-        const alreadyAnswered = await db
-            .select()
-            .from(userAnswerTable)
-            .where(
-                and(
-                    eq(userAnswerTable.mockIdRef, mockId),
-                    eq(userAnswerTable.userEmail, user?.email as string),
-                    eq(userAnswerTable.question, data?.[currentQuestion]?.question as string),
-                ),
-            )
-            .limit(1);
-        if (alreadyAnswered.length > 0) {
-            return { error: 'You have already answered this question' };
-        }
         const feedbackPrompt = `
             Question: ${data?.[currentQuestion]?.question}
             User Answer: ${userAnswer}
