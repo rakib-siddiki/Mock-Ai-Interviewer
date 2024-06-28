@@ -68,6 +68,9 @@ const config = {
                     foreground: 'hsl(var(--card-foreground))',
                 },
             },
+            backgroundImage: {
+                "background-grid": 'url(/grid.svg)',
+            },
             fontFamily: {
                 roboto: ['var(--font-roboto-sans)'],
             },
