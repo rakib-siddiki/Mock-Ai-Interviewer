@@ -1,7 +1,7 @@
 'use server';
 
 import { db } from '@/db/drizzle';
-import { mockAiInterviewer } from '@/db/schema';
+import { mockAiInterviewer, userAnswerTable } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 export type TInterviewDetails = {
     id: string;
@@ -43,6 +43,21 @@ export const GetInterviewqustions = async (mockId: string): Promise<TInterviewQA
             .where(eq(mockAiInterviewer.mockId, mockId));
         const parsedResponse = JSON.parse(res[0].jsonMockResponse) as TInterviewQAResponse;
         return parsedResponse;
+    } catch (error) {
+        return {
+            error: 'An unexpected error occurred! please try again later.😢',
+        };
+    }
+};
+
+export const getFeedback = async (mockId: string) => {
+    try {
+        const res = await db
+            .select()
+            .from(userAnswerTable)
+            .where(eq(userAnswerTable.mockIdRef, mockId));
+        if (res.length === 0) return { error: 'No feedback found' };
+        return res;
     } catch (error) {
         return {
             error: 'An unexpected error occurred! please try again later.😢',

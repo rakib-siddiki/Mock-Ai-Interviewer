@@ -1,8 +1,12 @@
 'use client';
 import React, { FC, useState } from 'react';
-import { CardNote, QuestionsCard, RecordAnswer } from '..';
+import { CardNote, QuestionsCard } from '..';
 import { START_INTERVIEW_NOTE } from '@/app/(protected)/static';
 import { useSpeechToText } from '@/app/(protected)/dashboard/hooks';
+import dynamic from 'next/dynamic';
+const RecordAnswer = dynamic(() => import('..').then((mod) => mod.RecordAnswer), {
+    loading: () => <div className='h-full w-full animate-pulse rounded-xl bg-gray-50' />,
+});
 interface IProps {
     data: { question: string; answer: string }[] | null;
     error: string;

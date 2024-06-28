@@ -54,6 +54,6 @@
     }
 
     body {
-        @apply bg-background font-roboto text-foreground;
+        @apply overflow-scroll bg-background font-roboto text-foreground;
     }
 }

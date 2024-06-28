@@ -166,7 +166,7 @@ const WebCam: FC<IProps> = ({
                 </div>
             )}
             <div className='flex justify-end'>
-                <Link href={`${mockId}/${pathUrl}`}>
+                <Link href={`/dashboard/interviews/${mockId}/${pathUrl}`}>
                     <Button
                         className='inline-flex items-center gap-1 transition-colors duration-300'
                         variant='outline'
