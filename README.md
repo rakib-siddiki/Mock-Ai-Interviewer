@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mock AI Interviewer
 
-## Getting Started
+Welcome to the Mock AI Interviewer web app! This application provides a realistic interview experience by simulating technical interviews tailored to your job position, tech stack, and years of experience.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+-   **Customizable Interviews**: Start or add new interviews based on your job position, tech stack, and years of experience.
+-   **Multi-Modal Responses**: Answer questions using your webcam and voice for a lifelike experience, or type your responses if you prefer.
+-   **Instant Feedback**: Receive instant ratings and detailed feedback on your performance once you complete the interview.
+-   **Secure Authentication**: Easily sign in with Google, Gmail, or GitHub for a seamless and secure experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Check out the demo of the Mock AI Interviewer web app [here](https://mock-ai-interviewer.vercel.app).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+Follow these steps to set up the project locally:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```sh
+    git clone https://github.com/rakib-siddiki/Mock-Ai-Interviewer.git
+    cd Mock-Ai-Interviewer
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Install dependencies**:
 
-## Deploy on Vercel
+    ```sh
+    # using npm
+    npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    # using yarn
+    yarn install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    # using bun
+    bun install
+
+    # using pnpm
+    pnpm install
+    ```
+
+3. **Set up environment variables**:
+   Create a `.env.local` file in the root directory and add your environment variables. Example:
+
+    ```sh
+    KINDE_CLIENT_ID=your_kinde_client_id
+    KINDE_CLIENT_SECRET=your_kinde_client_secret
+    KINDE_ISSUER_URL=your_kinde_issuer_url
+    KINDE_SITE_URL=your_site_url
+    KINDE_POST_LOGOUT_REDIRECT_URL=your_post_logout_redirect_url
+    KINDE_POST_LOGIN_REDIRECT_URL=your_post_login_redirect_url
+    NEXT_PUBLIC_KINDE_PASSWORD_LESS_CONNECTION_ID=your_password_less_connection_id
+    NEXT_PUBLIC_KINDE_GITHUB_CONNECTION_ID=your_github_connection_id
+    NEXT_PUBLIC_KINDE_GOOGLE_CONNECTION_ID=your_google_connection_id
+    DATABASE_URL=your_database_url
+    GEMINI_API_KEY=your_gemini_api_key
+    QUESTION_AMOUNT=your_question_amount
+    ```
+
+4. **Run the development server**:
+
+    ```sh
+    # using npm
+    npm run dev
+
+    # using yarn
+    yarn dev
+
+    # using bun
+    bun dev
+
+    # using pnpm
+    pnpm dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Usage
+
+1. **Sign In**: Sign in using your Google, Gmail, or GitHub account.
+2. **Start Interview**: Select your job position, tech stack, and years of experience to start a new interview.
+3. **Answer Questions**: Use your webcam and voice to answer questions or type your responses.
+4. **Receive Feedback**: Get instant ratings and detailed feedback on your interview performance.
+
+## Technologies Used
+
+-   **Frontend**: Next.js, TypeScript,Tailwind CSS,Shadcn,Framer-motion
+-   **Backend**: Drizzle ORM, PostgreSQL
+-   **Authentication**: Kinde Auth
+
+## Contact
+
+If you have any questions or suggestions, feel free to reach out:
+
+-   **Name**: Rakib Siddiki
+-   **Email**: [rmrakib901@gmail.com](mailto:rmrakib901@gmail.com)
+-   **GitHub**: [rakib-siddiki](https://github.com/rakib-siddiki)
+
+---
+
+Thank you for using the Mock AI Interviewer web app! We hope it helps you prepare effectively for your technical interviews.
