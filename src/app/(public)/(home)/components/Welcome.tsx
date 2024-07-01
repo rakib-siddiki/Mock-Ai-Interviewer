@@ -12,7 +12,7 @@ export default function Welcome() {
                         className='mb-7 inline-flex items-center justify-between rounded-full bg-zinc-100 px-1 py-1 pr-4 text-sm text-gray-700 shadow transition duration-300 hover:bg-zinc-200'
                         role='alert'
                     >
-                        <span className='mr-3 rounded-full bg-gray-800 bg-primary px-4 py-1.5 text-xs text-white'>
+                        <span className='mr-3 rounded-full bg-gray-800 px-4 py-1.5 text-xs text-white'>
                             New
                         </span>{' '}
                         <span className='text-sm font-medium'>

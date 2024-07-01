@@ -1,5 +1,5 @@
 'use server';
-import { QUSTION_AMOUNT } from '@/configs/env';
+import { QUESTION_AMOUNT } from '@/configs/env';
 import { db } from '@/db/drizzle';
 import { mockAiInterviewer } from '@/db/schema';
 import { chatSession } from '@/lib/gemini-ai-model';
@@ -22,7 +22,7 @@ export const addInterview = async (data: IFromData) => {
         const propmt = `
         Job Position: ${jobRole}
         TECH stacks : ${techStack}
-        Years of Experience: ${yearsOfExperience} Please provide ${QUSTION_AMOUNT} interview questions along with their simple answers in JSON format. Ensure the questions are relevant to the specified job position, description, and required experience level. The output should be structured with each question and its corresponding answer in a separate JSON object, formatted as follows:`;
+        Years of Experience: ${yearsOfExperience} Please provide ${QUESTION_AMOUNT} interview questions along with their simple answers in JSON format. Ensure the questions are relevant to the specified job position, description, and required experience level. The output should be structured with each question and its corresponding answer in a separate JSON object, formatted as follows:`;
         const result = await chatSession.sendMessage(propmt);
         const jsonMockResponse = result.response.text().replace(/```json|```/g, '');
 
