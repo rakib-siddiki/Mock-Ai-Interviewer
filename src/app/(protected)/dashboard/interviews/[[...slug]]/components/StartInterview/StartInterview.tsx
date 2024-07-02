@@ -1,6 +1,6 @@
 import { GetInterviewqustions } from '@/app/(protected)/dashboard/actions/interviewDetails';
 import React, { FC } from 'react';
-import { Container } from '..';
+import { Container } from '@/app/(protected)/components/Container';
 import { SartInterviewClient } from '.';
 interface IProps {
     mockId: string;

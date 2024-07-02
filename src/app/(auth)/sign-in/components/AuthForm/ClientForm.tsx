@@ -14,7 +14,7 @@ const ClientForm = () => {
                 <Input
                     id='email'
                     type='email'
-                    placeholder='m@example.com'
+                    placeholder='rakib@example.com'
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </div>

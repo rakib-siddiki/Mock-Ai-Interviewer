@@ -1,5 +1,5 @@
 import React, { FC, Fragment, Suspense } from 'react';
-import Container from '../Container';
+import { Container } from '@/app/(protected)/components/Container';
 import { getFeedback } from '@/app/(protected)/dashboard/actions/interviewDetails';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';

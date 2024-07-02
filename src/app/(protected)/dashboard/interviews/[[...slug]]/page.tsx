@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
-import { Container, Feedback, GetStarted, InterViewLists, StartInterview } from './components';
+import { Feedback, GetStarted, InterViewLists, StartInterview } from './components';
+import { Container } from '@/app/(protected)/components/Container';
+
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 

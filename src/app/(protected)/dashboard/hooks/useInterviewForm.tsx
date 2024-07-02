@@ -19,7 +19,7 @@ export const useInterviewForm = () => {
         handleSubmit,
         control,
         setError,
-        formState: { isSubmitting, errors },
+        formState: { isSubmitting, isSubmitSuccessful, errors },
     } = form;
     const onSubmit = async (data: TInterviewFormSchema) => {
         const result = await addInterview(data);
@@ -33,11 +33,11 @@ export const useInterviewForm = () => {
                     color: 'white',
                     background: 'green',
                 },
-                duration: 1500,
             });
-            router.push(`/dashboard/interviews/${result?.mockId}`);
+            router.replace(`/dashboard/interviews/${result?.mockId}`);
+            return;
         }
     };
 
-    return { form, handleSubmit, control, onSubmit, isSubmitting, errors };
+    return { form, handleSubmit, isSubmitSuccessful, control, onSubmit, isSubmitting, errors };
 };

@@ -4,7 +4,8 @@ import { GetInterviewDetails } from '@/app/(protected)/dashboard/actions/intervi
 import { InterViewDetailsSkeleton } from '.';
 import { notFound } from 'next/navigation';
 import { GET_STARTED_NOTE } from '@/app/(protected)/static';
-import { WebCam, CardNote, Container } from '..';
+import { WebCam, CardNote } from '..';
+import { Container } from '@/app/(protected)/components/Container';
 interface IProps {
     mockId: string;
 }

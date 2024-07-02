@@ -17,7 +17,8 @@ import { TInterviewFormSchema } from './ZodSchema';
 import { useInterviewForm } from '../../hooks';
 
 const Form = () => {
-    const { form, handleSubmit, control, onSubmit, isSubmitting, errors } = useInterviewForm();
+    const { form, handleSubmit, control, onSubmit, isSubmitting, isSubmitSuccessful, errors } =
+        useInterviewForm();
     return (
         <section>
             <FormCore {...form}>
@@ -42,7 +43,7 @@ const Form = () => {
                         {errors.root?.message}
                     </p>
                     <Button
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || isSubmitSuccessful}
                         type='submit'
                         className='w-full gap-2 max-sm:h-9'
                     >
