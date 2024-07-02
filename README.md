@@ -31,7 +31,7 @@ Follow these steps to set up the project locally:
     npm install
 
     # using yarn
-    yarn install
+    yarn 
 
     # using bun
     bun install
