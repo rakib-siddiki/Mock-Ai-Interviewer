@@ -15,7 +15,7 @@ const InterviewForm: FC<IProps> = ({ isOpen, setIsOpen }) => {
     return (
         <section className='container'>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                <DialogContent>
+                <DialogContent className='h-full max-h-[465px]'>
                     <DialogHeader>
                         <DialogTitle className='text-2xl'>
                             Take A Job Interview Preparation
