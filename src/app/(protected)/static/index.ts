@@ -72,3 +72,53 @@ export const UPGRADE_CARD = [
         ],
     },
 ];
+
+export const HOW_IT_WORKS_POINTS = [
+    {
+        id: 1,
+        title: 'Start or Add an Interview',
+        points: [
+            '🌟 Customized Setup: Begin a new interview or enhance an existing one by selecting your job position, tech stack, and experience level. Our intuitive setup ensures you get the most relevant questions.',
+        ],
+    },
+    {
+        id: 2,
+        title: 'Choose Your Interview Mode',
+        points: [
+            '🎥 Webcam: Simulate a real interview environment with video responses.',
+            '🎙️ Voice: Answer questions verbally for a dynamic practice session.',
+            `📝 Typing: Prefer typing? We've got you covered!`,
+        ],
+    },
+    {
+        id: 3,
+        title: 'Receive Instant Feedback',
+        points: [
+            '⭐ Real-Time Analysis: Get instant ratings and detailed feedback on your answers.',
+            '📈 Improvement Tips: Identify strengths and areas for growth to boost your confidence.',
+        ],
+    },
+    {
+        id: 4,
+        title: 'Secure Authentication',
+        points: [
+            '🔒 Login with Ease: Use Google, Gmail, or GitHub for secure and seamless access. Your data is safe with us.',
+        ],
+    },
+];
+export const HOW_IT_WORKS_ADITIONAL_POINTS = [
+    {
+        id: 1,
+        title: 'Interactive Interface',
+        points: [
+            '🕹️ Realistic Simulations: Engage with a dynamic interface that mimics real interview scenarios. Our mock interviewers adapt to your responses for a lifelike experience.',
+        ],
+    },
+    {
+        id: 2,
+        title: 'Subscription Plans',
+        points: [
+            '💼 Flexible Options: Explore subscription plans tailored to students, job seekers, and professionals. Find the perfect fit for your career goals.',
+        ],
+    },
+];
