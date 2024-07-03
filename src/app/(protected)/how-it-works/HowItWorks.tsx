@@ -1,9 +1,7 @@
 import React from 'react';
 import { HOW_IT_WORKS_ADITIONAL_POINTS, HOW_IT_WORKS_POINTS } from '../static';
-import dynamic from 'next/dynamic';
-const VideoPlayer = dynamic(() => import('../components').then((mod) => mod.VideoPlayer), {
-    ssr: false,
-});
+import { VideoPlayer } from './VideoPlayer';
+
 const HowItWorks = () => {
     return (
         <article className='space-y-6 sm:space-y-8'>

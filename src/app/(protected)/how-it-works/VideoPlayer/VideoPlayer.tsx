@@ -1,6 +1,17 @@
 'use client';
 import React from 'react';
-import Plyr, { PlyrSource } from 'plyr-react';
+import dynamic from 'next/dynamic';
+import { PlyrSource } from 'plyr-react';
+const Plyr = dynamic(
+    () =>
+        import('plyr-react').then((mod) => ({
+            default: mod.default,
+        })),
+    {
+        ssr: false,
+    },
+);
+
 import 'plyr-react/plyr.css';
 const VideoPlayer = () => {
     const videoSrc: PlyrSource = {
