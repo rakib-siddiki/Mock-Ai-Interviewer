@@ -36,7 +36,7 @@ export default function Welcome() {
                             <Icons.ArrowRight />
                         </Link>
                         <Link
-                            href='#'
+                            href='/how-it-works'
                             className='inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-zinc-100 focus:ring-4 focus:ring-gray-100'
                         >
                             <Icons.Video />
