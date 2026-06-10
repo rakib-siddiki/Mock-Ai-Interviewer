@@ -151,15 +151,31 @@ const WebCam: FC<IProps> = ({
                     )}
 
                     {!isAnswerInText && (
-                        <Button onClick={handleListen}>
+                        <Button
+                            onClick={handleListen}
+                            disabled={loading || isProcessing}
+                            className='active:scale-95'
+                        >
                             {loading ? (
-                                <Icons.Loader className='animate-spin' />
-                            ) : isProcessing && isListening ? (
-                                <Icons.Mic />
-                            ) : !isProcessing && !isListening ? (
-                                'Start Recording'
+                                <div className='flex items-center gap-2'>
+                                    <Icons.Loader className='size-4 animate-spin' />
+                                    <span>Submitting...</span>
+                                </div>
+                            ) : isProcessing ? (
+                                <div className='flex items-center gap-2'>
+                                    <Icons.Loader className='size-4 animate-spin' />
+                                    <span>Transcribing...</span>
+                                </div>
+                            ) : isListening ? (
+                                <div className='flex items-center gap-2'>
+                                    <span className='relative flex h-2 w-2'>
+                                        <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75'></span>
+                                        <span className='relative inline-flex h-2 w-2 rounded-full bg-red-500'></span>
+                                    </span>
+                                    <span>Stop Recording</span>
+                                </div>
                             ) : (
-                                'Stop Recording '
+                                'Start Recording'
                             )}
                         </Button>
                     )}

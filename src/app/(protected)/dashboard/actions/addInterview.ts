@@ -6,6 +6,8 @@ import { chatSession } from '@/lib/gemini-ai-model';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { randomUUID } from 'crypto';
 
+import { revalidatePath } from 'next/cache';
+
 interface IFromData {
     jobRole: string;
     techStack: string;
@@ -37,6 +39,10 @@ export const addInterview = async (data: IFromData) => {
                 mockId: randomUUID(),
             })
             .returning({ mockId: mockAiInterviewer.mockId });
+
+        revalidatePath('/dashboard');
+        revalidatePath('/dashboard/interviews');
+
         return {
             mockId: res[0].mockId,
         };
