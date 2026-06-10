@@ -31,7 +31,7 @@ Follow these steps to set up the project locally:
     npm install
 
     # using yarn
-    yarn 
+    yarn
 
     # using bun
     bun install
@@ -55,6 +55,7 @@ Follow these steps to set up the project locally:
     NEXT_PUBLIC_KINDE_GOOGLE_CONNECTION_ID=your_google_connection_id
     DATABASE_URL=your_database_url
     GEMINI_API_KEY=your_gemini_api_key
+    GEMINI_MODEL=your_gemini_model
     QUESTION_AMOUNT=your_question_amount
     ```
 
