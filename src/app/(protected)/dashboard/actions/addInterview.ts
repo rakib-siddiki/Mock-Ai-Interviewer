@@ -41,6 +41,7 @@ export const addInterview = async (data: IFromData) => {
             mockId: res[0].mockId,
         };
     } catch (error) {
+        console.error('error', error);
         return {
             error: 'An unexpected error occurred! Please try again later.',
         };

@@ -6,4 +6,5 @@ export const GITHUB_CONNECTION_ID = process.env.NEXT_PUBLIC_KINDE_GITHUB_CONNECT
 export const PASSWORD_LESS_CONNECTION_ID =
     process.env.NEXT_PUBLIC_KINDE_PASSWORD_LESS_CONNECTION_ID || '';
 export const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+export const GEMINI_MODEL = process.env.GEMINI_MODEL || '';
 export const QUESTION_AMOUNT = process.env.QUESTION_AMOUNT || '';

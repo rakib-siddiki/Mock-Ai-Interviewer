@@ -1,11 +1,11 @@
-import { GEMINI_API_KEY } from '@/configs/env';
+import { GEMINI_API_KEY, GEMINI_MODEL } from '@/configs/env';
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from '@google/generative-ai';
 
 const apiKey = GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
-    model: 'gemini-1.5-flash',
+    model: GEMINI_MODEL,
 });
 const safetySettings = [
     {
